@@ -2,12 +2,17 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Home from '../components/Home';
 import Profile from '../components/Profile';
+import Notification from '../components/Notification';
+import Messages from '../components/Messages';
+import { AntDesign } from '@expo/vector-icons';
+import { View } from 'react-native';
+import Post from '../components/Post';
 const Tab = createBottomTabNavigator();
 
 function MyTabs() {
   return (
     <Tab.Navigator
-      initialRouteName="Feed"
+      initialRouteName="Home"
       screenOptions={{
         tabBarActiveTintColor: '#e91e63',
       }}
@@ -22,17 +27,28 @@ function MyTabs() {
           ),
         }}
       />
-      {/* <Tab.Screen
-        name="Notifications"
-        component={Notifications}
+      <Tab.Screen
+        name="Messages"
+        component={Messages}
         options={{
-          tabBarLabel: 'Updates',
+          tabBarLabel: 'Messages',
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="bell" color={color} size={size} />
+            <MaterialCommunityIcons name="android-messages" color={color} size={size} />
           ),
-          tabBarBadge: 3,
         }}
-      /> */}
+      />
+      <Tab.Screen
+        name="Post"
+        component={Post}
+        options={{
+          tabBarLabel: '',
+          tabBarIcon: ({ color, size }) => (
+            <View style={{position: "absolute", bottom: 15}}>
+              <MaterialCommunityIcons name="plus-circle-outline" color={color} size={60} />
+            </View>
+          ),
+        }}
+      />
       <Tab.Screen
         name="Profile"
         component={Profile}
@@ -41,6 +57,17 @@ function MyTabs() {
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="account" color={color} size={size} />
           ),
+        }}
+      />
+      <Tab.Screen
+        name="Notifications"
+        component={Notification}
+        options={{
+          tabBarLabel: 'Updates',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="bell" color={color} size={size} />
+          ),
+          tabBarBadge: 3,
         }}
       />
     </Tab.Navigator>
