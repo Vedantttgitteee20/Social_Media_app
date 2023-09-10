@@ -6,7 +6,7 @@ import Notification from '../components/Notification';
 import Messages from '../components/Messages';
 import { AntDesign } from '@expo/vector-icons';
 import { View } from 'react-native';
-import Post from '../components/Post';
+import Post from '../components/NewPost';
 const Tab = createBottomTabNavigator();
 
 function MyTabs() {
