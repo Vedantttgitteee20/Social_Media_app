@@ -7,8 +7,9 @@ import Messages from '../components/Messages';
 import { AntDesign } from '@expo/vector-icons';
 import { View } from 'react-native';
 import Post from '../components/NewPost';
-const Tab = createBottomTabNavigator();
+import HomeHeader from '../components/Header/HomeHeader';
 
+const Tab = createBottomTabNavigator();
 function MyTabs() {
   return (
     <Tab.Navigator
@@ -25,6 +26,7 @@ function MyTabs() {
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="home" color={color} size={size} />
           ),
+          headerTitle: () => <HomeHeader />
         }}
       />
       <Tab.Screen
